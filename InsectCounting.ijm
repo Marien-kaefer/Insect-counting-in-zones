@@ -1,3 +1,26 @@
+/*
+Macro to count insect in a field of view split into smaller regions of interest.
+
+												- Written by Marie Held [mheldb@liverpool.ac.uk] August 2022
+												  Liverpool CCI (https://cci.liverpool.ac.uk/)
+________________________________________________________________________________________________________________________
+
+BSD 2-Clause License
+
+Copyright (c) [2022], [Marie Held {mheldb@liverpool.ac.uk}, Image Analyst Liverpool CCI (https://cci.liverpool.ac.uk/)]
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+
+*/
+
+
+
+
 if (roiManager("count") > 0){
 	roiManager("reset");
 }
@@ -34,8 +57,7 @@ else{
 }
 
 roiManager("Open", zones_file_directory + File.separator + "zoneROIs.zip");
-numberOfRectangles = roiManager("count");
-//selectWindow(preprocessedImage);
+numberOfRectangles = roiManager("count"); 
 run("Set Measurements...", "  redirect=None decimal=3");
 
 for (i = 0; i<numberOfRectangles; i++){
