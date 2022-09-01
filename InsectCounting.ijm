@@ -31,8 +31,6 @@ originalTitleWithoutExtension = file_name_remove_extension(originalTitle);
 directory = File.directory;
 
 //duplicate, plit channels and keep blue component only
-run("Duplicate...", " ");
-selectWindow(originalTitle);
 run("Split Channels");
 selectWindow(originalTitle + " (green)"); 
 close();
@@ -48,8 +46,11 @@ run("Replace value", "pattern=0 replacement=255"); //the rotation results in som
 run("Top Hat...", "radius=8 light");
 //data smoothing to reduce noise, the median filter is edge preserving
 run("Median...", "radius=2");
+run("Duplicate...", " ");
+rename(originalTitleWithoutExtension + "-Reference for quality control"); 
 
 //classify pixels into objects (white) and background (black)
+selectWindow(originalTitle); 
 setAutoThreshold("Otsu");
 setOption("BlackBackground", true);
 run("Convert to Mask");
